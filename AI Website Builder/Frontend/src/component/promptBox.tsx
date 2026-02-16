@@ -6,16 +6,16 @@ type props = {
 };
 
 const PromptBox = ({ setPreview }: props) => {
-  const [promt, setPrompt] = useState("");
+  const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
 
   const generateWebsite = async () => {
-    if (!promt) return;
+    if (!prompt) return;
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/generate", {
-        promt,
+      const res = await axios.post("http://localhost:3000/generate", {
+        prompt: prompt,
       });
       setPreview(res.data.previewUrl);
     } catch (err) {
@@ -25,12 +25,12 @@ const PromptBox = ({ setPreview }: props) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen gap-2">
+    <div className="flex flex-col justify-center items-center gap-2 py-10">
       <h1 className="font-bold text-3xl text-blue-400">AI Website Builder</h1>
       <textarea
         className="w-100 border border-2 rounded-md p-2 bg-white"
         placeholder="Create a modern todo app.."
-        value={promt}
+        value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
         rows={4}
       />

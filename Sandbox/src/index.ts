@@ -6,7 +6,7 @@ dotenv.config();
 
 async function main() {
   const result = await runReactAgent(
-    "Create modern glassmorphism todo app with add delete feature",
+    "create a modern landing page for hotel carnival with vibrant colours also interactive pages",
   );
 
   console.log("\nResult:", result);
