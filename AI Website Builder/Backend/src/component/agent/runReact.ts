@@ -165,7 +165,7 @@ No markdown. No explanation.
         continue;
       }
 
-      const previewUrl = toPublicUrl(sandbox.getHost(5173));
+      const previewUrl = `https://${sandbox.getHost(5173)}`;
       console.log("\n🎉 SUCCESS! LIVE PREVIEW:");
       console.log(previewUrl);
       return previewUrl;
