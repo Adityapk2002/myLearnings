@@ -43,7 +43,7 @@ const MainLayout = () => {
           <div className="text-sm text-white">Aditya</div>
         </div>
 
-        <div className="flex-1 bg-black flex items-center justify-center">
+        <div className="flex-1 bg-black flex items-center justify-center px-2">
           {activeTab == "code"
             ? "Code editor coming..."
             : "Live preview coming..."}
