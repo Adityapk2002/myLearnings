@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ChatPanel from "../../component/chatPanel";
+import MonacoEditor from "../../features/editor";
 
 const MainLayout = () => {
   const [activeTab, setActiveTab] = useState<"code" | "preview">("preview");
@@ -35,9 +36,7 @@ const MainLayout = () => {
         </div>
 
         <div className="flex-1 bg-black flex items-center justify-center px-2">
-          {activeTab == "code"
-            ? "Code editor coming..."
-            : "Live preview coming..."}
+          {activeTab == "code" ? <MonacoEditor /> : "Live preview coming..."}
         </div>
       </div>
     </div>
