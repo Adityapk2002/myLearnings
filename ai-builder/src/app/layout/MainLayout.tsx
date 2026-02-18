@@ -1,9 +1,12 @@
 import { useState } from "react";
 import ChatPanel from "../../component/chatPanel";
 import MonacoEditor from "../../features/editor";
+import Preview from "../../features/preview";
+import { landingPage } from "../../prompt";
 
 const MainLayout = () => {
   const [activeTab, setActiveTab] = useState<"code" | "preview">("preview");
+  const [code, setCode] = useState(landingPage);
 
   return (
     <div className="h-screen w-full bg-[#111111] text-white flex overflow-hidden">
@@ -36,7 +39,11 @@ const MainLayout = () => {
         </div>
 
         <div className="flex-1 bg-black flex items-center justify-center px-2">
-          {activeTab == "code" ? <MonacoEditor /> : "Live preview coming..."}
+          {activeTab == "code" ? (
+            <MonacoEditor code={code} setCode={setCode} />
+          ) : (
+            <Preview code={code} />
+          )}
         </div>
       </div>
     </div>

@@ -1,20 +1,19 @@
 import { Editor } from "@monaco-editor/react";
 
-const MonacoEditor = () => {
+type Props = {
+  code: string;
+  setCode: (val: string) => void;
+};
+
+const MonacoEditor = ({ code, setCode }: Props) => {
   return (
     <div className="h-full w-full">
       <Editor
         defaultLanguage="javascript"
         theme="vs-dark"
-        defaultValue={`<!DOCTYPE html>
-<html>
-<head>
-  <title>My Site</title>
-</head>
-<body>
-  <h1>Hello from AI builder 🚀</h1>
-</body>
-</html>`}
+        value={code}
+        height="100%"
+        onChange={(value) => setCode(value || "")}
         options={{
           fontSize: 14,
           minimap: { enabled: false },
